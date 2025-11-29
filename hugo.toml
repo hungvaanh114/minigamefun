@@ -1,3 +1,8 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = 'https://hungvaanh114.github.io/minigamefun/'
+languageCode = 'vi-VN'
+title = 'MiniGameFun'
+theme = [] # Sử dụng layout tự code / Use custom layout
+
+[params]
+  description = "Chơi game HTML5 miễn phí cực hay"
+  author = "Admin"
