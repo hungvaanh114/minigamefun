@@ -1,8 +1,8 @@
 baseURL = 'https://hungvaanh114.github.io/minigamefun/'
-languageCode = 'vi-VN'
+languageCode = 'en-US'
 title = 'MiniGameFun'
-theme = [] # Sử dụng layout tự code / Use custom layout
 
-[params]
-  description = "Chơi game HTML5 miễn phí cực hay"
-  author = "Admin"
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+

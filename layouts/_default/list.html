@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="container">
+    <div class="list-header-box">
+        <h1>{{ .Title }} Games</h1>
+        <p>Play the best {{ .Title }} games for free.</p>
+    </div>
+
+    <div class="game-grid-dense">
+        {{ range .Paginator.Pages }}
+        <div class="game-item">
+            <a href="{{ .Permalink }}" title="{{ .Title }}">
+                <div class="thumb">
+                    <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}" loading="lazy">
+                </div>
+                <div class="title">{{ .Title }}</div>
+            </a>
+        </div>
+        {{ end }}
+    </div>
+
+    <div class="pagination">
+        {{ if .Paginator.HasPrev }}
+        <a href="{{ .Paginator.Prev.URL }}" class="page-btn">Previous</a>
+        {{ end }}
+        <span>Page {{ .Paginator.PageNumber }}</span>
+        {{ if .Paginator.HasNext }}
+        <a href="{{ .Paginator.Next.URL }}" class="page-btn">Next</a>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

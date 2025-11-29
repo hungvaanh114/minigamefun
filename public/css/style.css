@@ -20,14 +20,128 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     margin-bottom: 30px;
 }
+.site-header .container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
 .logo {
     color: #00e676; /* Green accent / Màu xanh điểm nhấn */
     font-size: 28px;
     font-weight: 900;
     text-decoration: none;
     text-transform: uppercase;
+    display: inline-block;
 }
 
+/* Header Navigation */
+.header-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.nav-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+.nav-link:hover {
+    background-color: #333;
+    color: #00e676;
+}
+
+/* Catalogs Dropdown */
+.nav-catalogs {
+    position: relative;
+}
+.catalogs-btn {
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+.catalogs-btn:hover {
+    background-color: #333;
+    color: #00e676;
+}
+.catalogs-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #252525;
+    border: 1px solid #333;
+    border-radius: 4px;
+    min-width: 150px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+.nav-catalogs:hover .catalogs-dropdown {
+    display: flex;
+}
+.catalog-link {
+    padding: 10px 15px;
+    color: #e0e0e0;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+    transition: background-color 0.2s;
+}
+.catalog-link:last-child {
+    border-bottom: none;
+}
+.catalog-link:hover {
+    background-color: #333;
+    color: #00e676;
+}
+
+/* Search in All Games */
+.all-search { margin: 10px 0 20px; text-align: right; }
+.all-search input[type="search"] {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #121212;
+    color: #e0e0e0;
+    width: 240px;
+}
+
+/* Catalog list (small cards) */
+.catalog-section { margin-bottom: 36px; }
+.catalog-box {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.catalog-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+}
+.catalog-list { 
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+.game-card.small { 
+    width: 100%;
+}
+.more-btn { 
+    color: #00e676; 
+    text-decoration: none; 
+    font-weight: 600;
+    font-size: 14px;
+}
 /* Game Grid / Lưới game */
 .game-grid {
     display: grid;

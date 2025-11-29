@@ -11,6 +11,19 @@
     <header class="site-header">
         <div class="container">
             <a href="{{ .Site.BaseURL }}" class="logo">MINI GAME FUN</a>
+            <nav class="header-nav">
+                <a href="{{ .Site.BaseURL }}" class="nav-link">Home</a>
+                <a href="{{ (printf "/hot/") | relURL }}" class="nav-link">Hot Games</a>
+                <a href="{{ (printf "/new/") | relURL }}" class="nav-link">New Games</a>
+                <div class="nav-catalogs">
+                    <button class="nav-link catalogs-btn">Catalogs ▼</button>
+                    <div class="catalogs-dropdown">
+                        {{ range site.Data.cat_map }}
+                            <a href="{{ (printf "/categories/%s/" . | urlize) | relURL }}" class="catalog-link">{{ . }}</a>
+                        {{ end }}
+                    </div>
+                </div>
+            </nav>
         </div>
     </header>
 

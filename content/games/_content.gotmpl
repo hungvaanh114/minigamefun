@@ -1,0 +1,54 @@
+{{/* 1. KHAI BÁO DỮ LIỆU (QUAN TRỌNG - KHÔNG ĐƯỢC XÓA) */}}
+{{/* Define Data Variables (Important - Do not delete) */}}
+{{ $data := site.Data.games }}
+{{ $catMap := site.Data.cat_map }}
+{{ $now := now }}
+
+{{/* 2. Lặp qua từng game */}}
+{{/* Loop through each game */}}
+{{ range $data }}
+  {{ $info := .fields }}
+  {{ $pk := .pk }} 
+
+  {{/* --- XỬ LÝ DANH MỤC (CATEGORY) --- */}}
+  {{/* Chuyển ID số sang Tên chữ dựa trên file cat_map.json */}}
+  {{ $catID := printf "%v" $info.category }} 
+  {{ $catName := index $catMap $catID | default "Other" }}
+
+  {{/* --- XỬ LÝ ĐƯỜNG DẪN (PATH) --- */}}
+  {{/* Tạo đường dẫn duy nhất: ten-game + ID (Ví dụ: racing-car-123) */}}
+  {{ $safePath := printf "%s-%v" ($info.game_name | urlize) $pk }}
+
+  {{/* --- NỘI DUNG (CONTENT) --- */}}
+  {{ $desc := $info.description | default "" }}
+  {{ $instr := $info.instructions | default "Tap to play." }}
+  {{ $fullContent := printf "%s<br><h3>Instructions</h3><p>%s</p>" $desc $instr }}
+
+  {{/* --- THÔNG SỐ (PARAMS) --- */}}
+  {{ $isNew := $info.is_new | default false }}
+  {{ $featured := $info.featured | default 0 }}
+  {{ $dateAdded := $info.date_added | default 0 }}
+  {{ $params := dict
+      "title" ($info.name | title)
+      "thumbnail" $info.image
+      "embed_url" $info.file
+      "width" ($info.w | default "100%")
+      "height" ($info.h | default "600")
+      "draft" false
+      "date" $now
+      "is_new" $isNew
+      "featured" $featured
+      "date_added" $dateAdded
+      "categories" (slice $catName) 
+  }}
+
+  {{/* --- TẠO TRANG (CREATE PAGE) --- */}}
+  {{ $.AddPage (dict
+      "kind" "page"
+      "path" $safePath 
+      "title" ($info.name | title)
+      "content" (dict "mediaType" "text/html" "value" $fullContent)
+      "params" $params
+      "taxonomies" (dict "categories" (slice $catName))
+  ) }}
+{{ end }}

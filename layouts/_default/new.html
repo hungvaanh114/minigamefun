@@ -1,0 +1,31 @@
+{{ define "main" }}
+
+<h1>{{ .Title }}</h1>
+
+{{ $threshold := 1743047841 }}
+{{ $newGames := slice }}
+{{ range where .Site.RegularPages "Section" "games" }}
+    {{ if ge (.Params.date_added | default 0 | int) $threshold }}
+        {{ $newGames = $newGames | append . }}
+    {{ end }}
+{{ end }}
+
+{{ if gt (len $newGames) 0 }}
+    <div class="game-grid">
+        {{ range $newGames }}
+            <div class="game-card" data-title="{{ .Title | lower }}">
+                <a href="{{ .Permalink }}">
+                    <div class="thumbnail">
+                        <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}">
+                        <span class="play-btn">▶</span>
+                    </div>
+                    <div class="info"><h3>{{ .Title }}</h3></div>
+                </a>
+            </div>
+        {{ end }}
+    </div>
+{{ else }}
+    <p>No new games available.</p>
+{{ end }}
+
+{{ end }}

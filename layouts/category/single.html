@@ -1,0 +1,32 @@
+{{ define "main" }}
+
+<h1>{{ .Title }}</h1>
+
+{{ $catName := .Params.category | default .Title }}
+{{ $allGames := where .Site.RegularPages "Section" "games" }}
+{{ $catGames := slice }}
+{{ range $allGames }}
+    {{ if in .Params.categories $catName }}
+        {{ $catGames = $catGames | append . }}
+    {{ end }}
+{{ end }}
+
+{{ if gt (len $catGames) 0 }}
+    <div class="game-grid">
+        {{ range $catGames }}
+            <div class="game-card">
+                <a href="{{ .Permalink }}">
+                    <div class="thumbnail">
+                        <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}">
+                        <span class="play-btn">▶</span>
+                    </div>
+                    <div class="info"><h3>{{ .Title }}</h3></div>
+                </a>
+            </div>
+        {{ end }}
+    </div>
+{{ else }}
+    <p>No games found in this category.</p>
+{{ end }}
+
+{{ end }}
