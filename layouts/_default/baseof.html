@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="{{ .Site.BaseURL }}" class="logo">MINI GAME FUN</a>
+        </div>
+    </header>
+
+    <main class="container">
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

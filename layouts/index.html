@@ -1,0 +1,17 @@
+{{ define "main" }}
+<section class="game-grid">
+    {{ range where .Site.RegularPages "Section" "games" }}
+    <div class="game-card">
+        <a href="{{ .Permalink }}">
+            <div class="thumbnail">
+                <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}">
+                <span class="play-btn">▶</span>
+            </div>
+            <div class="info">
+                <h3>{{ .Title }}</h3>
+            </div>
+        </a>
+    </div>
+    {{ end }}
+</section>
+{{ end }}
