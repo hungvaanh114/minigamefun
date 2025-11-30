@@ -1,8 +1,8 @@
 {{ define "main" }}
 <div class="game-play-wrapper">
-    <a href="/" class="back-link">← Danh sách game / Back to Games</a>
+    <a href="{{ site.Home.Permalink }}" class="back-link">← Back to Games</a>
     
-    <h1 class="game-title">{{ .Title }}</h1>
+    <!-- Title removed by request: game names are hidden -->
 
     <div class="iframe-container">
         <iframe src="{{ .Params.embed_url | safeURL }}" 
@@ -12,7 +12,7 @@
     </div>
 
     <div class="game-desc">
-        <h3>Hướng dẫn cách chơi / Instructions:</h3>
+        <h3>Instructions:</h3>
         <div class="content-text">
             {{ .Content }}
         </div>

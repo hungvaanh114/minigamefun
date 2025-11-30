@@ -1,23 +1,36 @@
 {{ define "main" }}
 <div class="container">
     <div class="list-header-box">
-        <h1>{{ .Title }} Games</h1>
-        <p>Play the best {{ .Title }} games for free.</p>
+        <h1>{{ .Title }}</h1>
+        {{ if .Params.description }}
+            <p>{{ .Params.description }}</p>
+        {{ else if .Summary }}
+            <p>{{ .Summary }}</p>
+        {{ end }}
+        {{ if .Content }}
+            <div class="section-content">
+                {{ .Content }}
+            </div>
+        {{ end }}
+        {{ if and (not .IsHome) (not .Content) }}
+            <p>Play the best {{ .Title }} games for free.</p>
+        {{ end }}
     </div>
 
     <div class="game-grid-dense">
         {{ range .Paginator.Pages }}
         <div class="game-item">
-            <a href="{{ .Permalink }}" title="{{ .Title }}">
+            <a href="{{ .Permalink }}">
                 <div class="thumb">
-                    <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}" loading="lazy">
+                    <img src="{{ .Params.thumbnail }}" alt="" loading="lazy">
                 </div>
-                <div class="title">{{ .Title }}</div>
+                <div class="title">{{ .Params.title }}</div>
             </a>
         </div>
         {{ end }}
     </div>
 
+    {{ if gt .Paginator.TotalPages 1 }}
     <div class="pagination">
         {{ if .Paginator.HasPrev }}
         <a href="{{ .Paginator.Prev.URL }}" class="page-btn">Previous</a>
@@ -27,5 +40,6 @@
         <a href="{{ .Paginator.Next.URL }}" class="page-btn">Next</a>
         {{ end }}
     </div>
+    {{ end }}
 </div>
 {{ end }}

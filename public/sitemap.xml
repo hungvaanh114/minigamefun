@@ -2,43 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/minigamefun/games/vacation-summer-dress-up-game-21272/</loc>
-    <priority>0</priority>
+    <loc>http://localhost:1313/minigamefun/about/</loc>
+    <lastmod>2025-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/minigamefun/contact/</loc>
+    <lastmod>2025-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/minigamefun/cookie-policy/</loc>
+    <lastmod>2025-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/minigamefun/</loc>
+    <lastmod>2025-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/minigamefun/privacy-policy/</loc>
+    <lastmod>2025-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/minigamefun/terms-of-use/</loc>
+    <lastmod>2025-11-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/minigamefun/games/rlm-rlm-virus-bird-23309/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>http://localhost:1313/minigamefun/games/mposter-rush-15460/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>http://localhost:1313/minigamefun/games/mpostor-alien-9185/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>http://localhost:1313/minigamefun/games/mpostor-and-crewmate-boxer-15334/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>http://localhost:1313/minigamefun/games/mpostor-beans-15419/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>http://localhost:1313/minigamefun/games/mpostor-game-console-15360/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>http://localhost:1313/minigamefun/games/mpostor-puzzle-1-9332/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>http://localhost:1313/minigamefun/games/mpostor-puzzle-2-9334/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>http://localhost:1313/minigamefun/games/mpostor-puzzle-3-8816/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>http://localhost:1313/minigamefun/games/ronball-super-hero-ball-5232/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>http://localhost:1313/minigamefun/games/rossroads-11250/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>http://localhost:1313/minigamefun/games/stronaut-5941/</loc>
     <priority>0</priority>
   </url><url>
     <loc>http://localhost:1313/minigamefun/games/1-2-3-4-player-tank-game-2d-25492/</loc>
@@ -43809,8 +43791,6 @@
     <loc>http://localhost:1313/minigamefun/games/minicraft-steve-and-wolf-adventure-7077/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>http://localhost:1313/minigamefun/</loc>
-  </url><url>
     <loc>http://localhost:1313/minigamefun/games/minigolf-19831/</loc>
     <priority>0</priority>
   </url><url>
@@ -45195,6 +45175,30 @@
     <priority>0</priority>
   </url><url>
     <loc>http://localhost:1313/minigamefun/games/mowing-simulator-4946/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/minigamefun/games/mposter-rush-15460/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/minigamefun/games/mpostor-alien-9185/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/minigamefun/games/mpostor-and-crewmate-boxer-15334/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/minigamefun/games/mpostor-beans-15419/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/minigamefun/games/mpostor-game-console-15360/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/minigamefun/games/mpostor-puzzle-1-9332/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/minigamefun/games/mpostor-puzzle-2-9334/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/minigamefun/games/mpostor-puzzle-3-8816/</loc>
     <priority>0</priority>
   </url><url>
     <loc>http://localhost:1313/minigamefun/games/mr-agent-5936/</loc>
@@ -56877,6 +56881,9 @@
     <loc>http://localhost:1313/minigamefun/games/ronaldo-soccer-challenge-4966/</loc>
     <priority>0</priority>
   </url><url>
+    <loc>http://localhost:1313/minigamefun/games/ronball-super-hero-ball-5232/</loc>
+    <priority>0</priority>
+  </url><url>
     <loc>http://localhost:1313/minigamefun/games/ronni-10367/</loc>
     <priority>0</priority>
   </url><url>
@@ -57058,6 +57065,9 @@
     <priority>0</priority>
   </url><url>
     <loc>http://localhost:1313/minigamefun/games/roshambo-17659/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/minigamefun/games/rossroads-11250/</loc>
     <priority>0</priority>
   </url><url>
     <loc>http://localhost:1313/minigamefun/games/rotate-bridge-10689/</loc>
@@ -65760,6 +65770,9 @@
     <loc>http://localhost:1313/minigamefun/games/strom-surge-277/</loc>
     <priority>0</priority>
   </url><url>
+    <loc>http://localhost:1313/minigamefun/games/stronaut-5941/</loc>
+    <priority>0</priority>
+  </url><url>
     <loc>http://localhost:1313/minigamefun/games/strong-fighter-2213/</loc>
     <priority>0</priority>
   </url><url>
@@ -72906,6 +72919,9 @@
     <priority>0</priority>
   </url><url>
     <loc>http://localhost:1313/minigamefun/games/vacation-summer-dress-up-19853/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>http://localhost:1313/minigamefun/games/vacation-summer-dress-up-game-21272/</loc>
     <priority>0</priority>
   </url><url>
     <loc>http://localhost:1313/minigamefun/games/vaccine-idle-4581/</loc>

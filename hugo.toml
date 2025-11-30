@@ -1,4 +1,5 @@
-baseURL = 'https://hungvaanh114.github.io/minigamefun/'
+# SỬA DÒNG NÀY: Dùng tên miền mới của bạn, phải có https:// và dấu / ở cuối
+baseURL = 'https://minigamefun.online/' 
 languageCode = 'en-US'
 title = 'MiniGameFun'
 
@@ -6,3 +7,8 @@ title = 'MiniGameFun'
   category = "categories"
   tag = "tags"
 
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[build]
+  useResourceCacheWhen = 'fallback'

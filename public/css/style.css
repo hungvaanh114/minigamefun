@@ -13,6 +13,98 @@ body {
     padding: 0 20px;
 }
 
+/* Footer: align content to same container width as page */
+/* --- SEO FOOTER STYLE --- */
+.site-footer {
+    background-color: #111; /* Nền rất tối */
+    color: #bbb; /* Chữ màu xám sáng */
+    padding: 60px 0 20px;
+    margin-top: 50px;
+    border-top: 3px solid #333;
+    font-size: 14px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr; /* Cột đầu tiên rộng gấp đôi */
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent); /* Gạch chân màu xanh/đỏ */
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Style cho cột Giới thiệu */
+.footer-logo {
+    font-size: 24px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 15px;
+    display: block;
+}
+.footer-logo span { color: var(--accent); }
+.footer-logo-img { height: 56px; width: auto; display: block; margin-bottom: 12px; }
+.footer-desc {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #999;
+}
+.footer-desc strong { color: #ddd; } /* Nhấn mạnh từ khóa SEO */
+
+/* Social Icons */
+.social-links { display: flex; gap: 15px; }
+.social-links a {
+    width: 35px; height: 35px;
+    background: #333; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+.social-links a:hover { background: var(--accent); transform: translateY(-3px); }
+
+/* Footer Links List */
+.footer-links li { margin-bottom: 10px; }
+.footer-links a {
+    color: #bbb;
+    transition: 0.2s;
+    display: block;
+}
+.footer-links a:hover {
+    color: var(--accent);
+    padding-left: 5px; /* Hiệu ứng đẩy nhẹ sang phải */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid #222;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+}
+
+/* RESPONSIVE (Mobile) */
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr; /* 2 cột trên Tablet */
+    }
+}
+@media (max-width: 600px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* 1 cột trên Mobile */
+        text-align: center;
+    }
+    .footer-col h3 { display: inline-block; }
+    .social-links { justify-content: center; }
+}
+
 /* Header */
 .site-header {
     background-color: #1e1e1e;
@@ -25,6 +117,22 @@ body {
     justify-content: space-between; 
     align-items: center;
 }
+
+/* Logo */
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+.logo-link:hover {
+    transform: scale(1.05);
+}
+.logo-img {
+    height: 60px;
+    width: auto;
+}
+
 .logo {
     color: #00e676; /* Green accent / Màu xanh điểm nhấn */
     font-size: 28px;
@@ -165,12 +273,20 @@ body {
 
 .thumbnail {
     position: relative;
-    height: 160px;
     overflow: hidden;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* keeps thumbnails proportional to their width */
+    background: #000;
 }
 .thumbnail img {
-    width: 100%; height: 100%; object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* preserves aspect ratio and crops instead of stretching */
+    display: block;
 }
+
+/* Slightly different aspect for small catalog cards so layout looks balanced */
+.catalog-list .thumbnail { aspect-ratio: 4 / 3; }
 .play-btn {
     position: absolute;
     top: 50%; left: 50%;
@@ -206,4 +322,54 @@ body {
     background: #1e1e1e;
     padding: 20px;
     border-radius: 8px;
+}
+
+/* Responsive layout improvements for header, nav, catalogs and game grid */
+@media (max-width: 1000px) {
+    .container { padding: 0 16px; }
+    .logo { font-size: 24px; }
+    .logo-img { height: 48px; }
+    .site-header .container { flex-direction: column; align-items: center; gap: 10px; }
+    .header-nav { flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .nav-link { padding: 6px 10px; }
+    .catalog-list { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .logo { font-size: 22px; }
+    .logo-img { height: 46px; }
+    .header-nav { gap: 8px; }
+    .catalog-list { grid-template-columns: repeat(3, 1fr); }
+    .game-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+    .all-search { text-align: center; }
+    .all-search input[type="search"] { width: 180px; }
+}
+
+@media (max-width: 600px) {
+    .site-header { padding: 12px 0; }
+    .logo { font-size: 20px; }
+    .logo span { color: var(--accent); }
+    .header-nav { width: 100%; justify-content: center; }
+    .catalog-list { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .catalog-box { padding: 12px; }
+    .game-grid { grid-template-columns: 1fr; gap: 18px; }
+    .thumbnail { height: 180px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 400px) {
+    .logo { font-size: 18px; }
+    .catalog-list { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .nav-link { font-size: 14px; padding: 6px 8px; }
+}
+
+/* Adjust aspect ratios on smaller screens so thumbnails remain proportional and balanced */
+@media (max-width: 600px) {
+    .thumbnail { aspect-ratio: 4 / 3; }
+    .catalog-list .thumbnail { aspect-ratio: 1 / 1; }
+}
+@media (max-width: 400px) {
+    .thumbnail { aspect-ratio: 1 / 1; }
+    .catalog-list .thumbnail { aspect-ratio: 1 / 1; }
 }

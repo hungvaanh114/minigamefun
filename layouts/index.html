@@ -3,6 +3,7 @@
 {{/* Catalog sections: each category shows a small list + More */}}
 {{ $gamesAll := where .Site.RegularPages "Section" "games" }}
 {{ $catMap := site.Data.cat_map }}
+{{ $baseURL := .Site.BaseURL }}
 {{ range $id, $catName := $catMap }}
     {{ $catPages := slice }}
     {{ range $gamesAll }}
@@ -15,17 +16,17 @@
             <h2 class="section-title">{{ $catName }}</h2>
             <div class="catalog-box">
                 <div class="catalog-header">
-                    <a class="more-btn" href="{{ (printf "/categories/%s/" $catName | urlize) | relURL }}">View All →</a>
+                    <a class="more-btn" href="{{ printf "%scategories/%s/" $baseURL ($catName | urlize) }}">View All →</a>
                 </div>
                 <div class="catalog-list">
                     {{ range first 10 $catPages }}
                         <div class="game-card small">
                             <a href="{{ .Permalink }}">
                                 <div class="thumbnail">
-                                    <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}">
+                                    <img src="{{ .Params.thumbnail }}" alt="">
                                     <span class="play-btn">▶</span>
                                 </div>
-                                <div class="info"><h3>{{ .Title }}</h3></div>
+                                <div class="info"><h3>{{ .Params.title }}</h3></div>
                             </a>
                         </div>
                     {{ end }}

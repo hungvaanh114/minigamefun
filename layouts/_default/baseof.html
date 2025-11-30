@@ -5,21 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Title }} | {{ .Site.Title }}</title>
     <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+    {{ $favicon := resources.Get "Image/logo.png" }}
+    {{ if $favicon }}
+        <link rel="icon" href="{{ $favicon.RelPermalink }}">
+    {{ else }}
+        <link rel="icon" href="{{ "images/logo.svg" | relURL }}">
+    {{ end }}
 </head>
 <body>
 
     <header class="site-header">
         <div class="container">
-            <a href="{{ .Site.BaseURL }}" class="logo">MINI GAME FUN</a>
+            <a href="{{ .Site.BaseURL }}" class="logo-link">
+                <span class="logo">MINIGAME<span>FUN</span></span>
+            </a>
             <nav class="header-nav">
                 <a href="{{ .Site.BaseURL }}" class="nav-link">Home</a>
-                <a href="{{ (printf "/hot/") | relURL }}" class="nav-link">Hot Games</a>
-                <a href="{{ (printf "/new/") | relURL }}" class="nav-link">New Games</a>
+                <a href="{{ printf "%shot/" .Site.BaseURL }}" class="nav-link">Hot Games</a>
+                <a href="{{ printf "%snew/" .Site.BaseURL }}" class="nav-link">New Games</a>
                 <div class="nav-catalogs">
                     <button class="nav-link catalogs-btn">Catalogs ▼</button>
                     <div class="catalogs-dropdown">
+                        {{ $baseURL := .Site.BaseURL }}
                         {{ range site.Data.cat_map }}
-                            <a href="{{ (printf "/categories/%s/" . | urlize) | relURL }}" class="catalog-link">{{ . }}</a>
+                            <a href="{{ printf "%scategories/%s/" $baseURL (. | urlize) }}" class="catalog-link">{{ . }}</a>
                         {{ end }}
                     </div>
                 </div>
@@ -32,7 +41,68 @@
     </main>
 
     <footer class="site-footer">
-        <p>&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col about-col">
+                    {{ $footerLogo := resources.Get "Image/logo.png" }}
+                    {{ if $footerLogo }}
+                        <img src="{{ $footerLogo.RelPermalink }}" alt="MiniGameFun" class="footer-logo-img">
+                    {{ else }}
+                        <img src="{{ "images/logo.svg" | relURL }}" alt="MiniGameFun" class="footer-logo-img">
+                    {{ end }}
+                    <p class="footer-desc">
+                        Play thousands of <strong>free online games</strong> at MiniGameFun. 
+                        No downloads, no login required. Enjoy the best <strong>HTML5 games</strong>, 
+                        puzzle games, racing games, and action games on any device.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Top Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="{{ site.BaseURL }}categories/action">Action Games</a></li>
+                        <li><a href="{{ site.BaseURL }}categories/racing">Racing Games</a></li>
+                        <li><a href="{{ site.BaseURL }}categories/girls">Girls Games</a></li>
+                        <li><a href="{{ site.BaseURL }}categories/puzzle">Puzzle Games</a></li>
+                        <li><a href="{{ site.BaseURL }}categories/io-games">.IO Games</a></li>
+                        <li><a href="{{ site.BaseURL }}categories/multiplayer">2 Player Games</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Information</h3>
+                    <ul class="footer-links">
+                        <li><a href="{{ site.BaseURL }}about/">About Us</a></li>
+                        <li><a href="{{ site.BaseURL }}contact/">Contact Us</a></li>
+                        <li><a href="{{ site.BaseURL }}privacy/">Privacy Policy</a></li>
+                        <li><a href="{{ site.BaseURL }}terms/">Terms of Use</a></li>
+                        <li><a href="{{ site.BaseURL }}cookies/">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>New Additions</h3>
+                    <ul class="footer-links">
+                        {{ range first 5 .Site.RegularPages }}
+                        <li>
+                            <a href="{{ .Permalink }}" aria-label="{{ .Title }}">
+                                {{ .Title }}
+                            </a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; {{ now.Year }} <strong>MiniGameFun</strong>. All Rights Reserved. Designed by You.</p>
+            </div>
+        </div>
     </footer>
 
 </body>

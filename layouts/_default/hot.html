@@ -2,18 +2,22 @@
 
 <h1>{{ .Title }}</h1>
 
-{{ $hotGames := where (where .Site.RegularPages "Section" "games") "Params.featured" 1 }}
+{{ $allGames := where .Site.RegularPages "Section" "games" }}
+{{ $hotGames := where $allGames "Params.featured" 1 }}
+{{ if eq (len $hotGames) 0 }}
+    {{ $hotGames = where $allGames "Params.featured" "1" }}
+{{ end }}
 
 {{ if gt (len $hotGames) 0 }}
     <div class="game-grid">
         {{ range $hotGames }}
-            <div class="game-card" data-title="{{ .Title | lower }}">
+            <div class="game-card">
                 <a href="{{ .Permalink }}">
                     <div class="thumbnail">
-                        <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}">
+                        <img src="{{ .Params.thumbnail }}" alt="">
                         <span class="play-btn">▶</span>
                     </div>
-                    <div class="info"><h3>{{ .Title }}</h3></div>
+                    <div class="info"><h3>{{ .Params.title }}</h3></div>
                 </a>
             </div>
         {{ end }}

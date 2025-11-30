@@ -8,28 +8,44 @@
 {{/* Loop through each game */}}
 {{ range $data }}
   {{ $info := .fields }}
-  {{ $pk := .pk }} 
+  {{ $pk := .pk }}
 
   {{/* --- XỬ LÝ DANH MỤC (CATEGORY) --- */}}
   {{/* Chuyển ID số sang Tên chữ dựa trên file cat_map.json */}}
-  {{ $catID := printf "%v" $info.category }} 
+  {{ $catID := printf "%v" $info.category }}
   {{ $catName := index $catMap $catID | default "Other" }}
 
   {{/* --- XỬ LÝ ĐƯỜNG DẪN (PATH) --- */}}
   {{/* Tạo đường dẫn duy nhất: ten-game + ID (Ví dụ: racing-car-123) */}}
-  {{ $safePath := printf "%s-%v" ($info.game_name | urlize) $pk }}
+  {{/* Sử dụng trường game_name gốc để làm đường dẫn */}}
+  {{ $safeName := $info.game_name | urlize }}
+  {{/* Nối tên URL với ID để đảm bảo duy nhất */}}
+  {{ $safePath := printf "%s-%v" $safeName $pk }}
+
+  {{/* --- XỬ LÝ TIÊU ĐỀ (TITLE) - Đã cập nhật theo yêu cầu MỚI NHẤT --- */}}
+  {{/*
+     strings.TrimPrefix "?" $info.name: Kiểm tra xem $info.name có bắt đầu bằng "?" không.
+     - Nếu CÓ: Loại bỏ dấu "?" ở đầu và giữ nguyên phần còn lại.
+     - Nếu KHÔNG: Giữ nguyên $info.name gốc.
+     strings.TrimSpace: Loại bỏ khoảng trắng thừa ở đầu/cuối sau khi xử lý.
+  */}}
+  {{ $rawTitle := $info.name | strings.TrimPrefix "?" | strings.TrimSpace }}
+
+  {{/* Viết hoa chữ cái đầu mỗi từ cho đẹp */}}
+  {{ $cleanTitle := $rawTitle | title }}
 
   {{/* --- NỘI DUNG (CONTENT) --- */}}
-  {{ $desc := $info.description | default "" }}
-  {{ $instr := $info.instructions | default "Tap to play." }}
+  {{ $desc := $info.description | default "" | replace "?" "" }}
+  {{ $instr := $info.instructions | default "Tap to play." | replace "?" "" }}
   {{ $fullContent := printf "%s<br><h3>Instructions</h3><p>%s</p>" $desc $instr }}
 
   {{/* --- THÔNG SỐ (PARAMS) --- */}}
   {{ $isNew := $info.is_new | default false }}
   {{ $featured := $info.featured | default 0 }}
   {{ $dateAdded := $info.date_added | default 0 }}
+
   {{ $params := dict
-      "title" ($info.name | title)
+      "title" $cleanTitle
       "thumbnail" $info.image
       "embed_url" $info.file
       "width" ($info.w | default "100%")
@@ -39,14 +55,14 @@
       "is_new" $isNew
       "featured" $featured
       "date_added" $dateAdded
-      "categories" (slice $catName) 
+      "categories" (slice $catName)
   }}
 
   {{/* --- TẠO TRANG (CREATE PAGE) --- */}}
   {{ $.AddPage (dict
       "kind" "page"
-      "path" $safePath 
-      "title" ($info.name | title)
+      "path" $safePath
+      "title" $cleanTitle
       "content" (dict "mediaType" "text/html" "value" $fullContent)
       "params" $params
       "taxonomies" (dict "categories" (slice $catName))
