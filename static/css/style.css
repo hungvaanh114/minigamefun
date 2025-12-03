@@ -50,7 +50,7 @@ body {
     display: block;
 }
 .footer-logo span { color: var(--accent); }
-.footer-logo-img { height: 56px; width: auto; display: block; margin-bottom: 12px; }
+.footer-logo-img { height: 120px; width: auto; display: block; margin-bottom: 12px; }
 .footer-desc {
     line-height: 1.6;
     margin-bottom: 20px;

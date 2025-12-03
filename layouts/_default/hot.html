@@ -2,11 +2,7 @@
 
 <h1>{{ .Title }}</h1>
 
-{{ $allGames := where .Site.RegularPages "Section" "games" }}
-{{ $hotGames := where $allGames "Params.featured" 1 }}
-{{ if eq (len $hotGames) 0 }}
-    {{ $hotGames = where $allGames "Params.featured" "1" }}
-{{ end }}
+{{ $hotGames := sort (where .Site.Pages ".Params.pk" "lt" 50) ".Params.pk" "desc" }}
 
 {{ if gt (len $hotGames) 0 }}
     <div class="game-grid">

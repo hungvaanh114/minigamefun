@@ -2,24 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cooking on MiniGameFun</title>
-    <link>http://localhost:1313/minigamefun/categories/cooking/</link>
+    <link>http://localhost:1313/categories/cooking/</link>
     <description>Recent content in Cooking on MiniGameFun</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <atom:link href="http://localhost:1313/minigamefun/categories/cooking/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/cooking/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Baby Taylor Thanksgiving Cooking</title>
-      <link>http://localhost:1313/minigamefun/games/baby-taylor-thanksgiving-cooking-25202/</link>
+      <title>Kitchen King Rush</title>
+      <link>http://localhost:1313/games/kitchen-king-rush-301/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/minigamefun/games/baby-taylor-thanksgiving-cooking-25202/</guid>
-      <description>This is an online cooking game for Thanksgiving. You will have the opportunity to go into Taylors house to help them prepare for Thanksgiving. Firstly you will need to go to the supermarket and go shopping for ingredients and items to prepare the decorations. When you get home you will need to make the turkey first, from the ingredients to the baking.?This is an online cooking game for Thanksgiving. You will have the opportunity to go into Taylors house to help them prepare for Thanksgiving. Firstly you will need to go to the supermarket and go shopping for ingredients and items to prepare the decorations. When you get home you will need to make the turkey first, from the ingredients to the baking.&lt;br&gt;&lt;h3&gt;Instructions&lt;/h3&gt;&lt;p&gt;Mouse click or tap to play?Mouse click or tap to play&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Idle Restaurant Tale</title>
-      <link>http://localhost:1313/minigamefun/games/idle-restaurant-tale-25209/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/minigamefun/games/idle-restaurant-tale-25209/</guid>
-      <description>This is a restaurant management simulation game, start as a street food bar, hire new staff and upgrade machine to earn more money, then open a bigger restaurant! Feature: - Simple and easy to start - Strategically upgrade your restaurants to maximize revenue - Various restaurants and food waiting for you to unlock.There are 11 cities and more than 100 different levels. - There are many game adventure events.?This is a restaurant management simulation game, start as a street food bar, hire new staff and upgrade machine to earn more money, then open a bigger restaurant! Feature: - Simple and easy to start - Strategically upgrade your restaurants to maximize revenue - Various restaurants and food waiting for you to unlock.There are 11 cities and more than 100 different levels. - There are many game adventure events.&lt;br&gt;&lt;h3&gt;Instructions&lt;/h3&gt;&lt;p&gt;Game control is very simple just tap the machines and foods to complete the game levels?Game control is very simple just tap the machines and foods to complete the game levels&lt;/p&gt;</description>
+      <guid>http://localhost:1313/games/kitchen-king-rush-301/</guid>
+      <description>&#34;Kitchen King Rush&#34; offers a high-velocity culinary simulation experience where the central objective is the timely execution of high-quality meal service for demanding patrons. Success hinges on efficient preparation, presentation, and delivery of a diverse menu amidst operational intensity. Maximizing customer satisfaction directly correlates with increased revenue and facilitates the expansion and enhancement of the enterprise, positioning the player as the premier figure in the restaurant sector. Featuring compelling visual design, escalating difficulty, and highly engaging mechanics, this application serves as a rigorous assessment of strategic agility and time management. The product supports deployment in both English and Spanish markets, inviting users to demonstrate their expertise as a top-tier culinary executive.?&#34;Kitchen King Rush&#34; offers a high-velocity culinary simulation experience where the central objective is the timely execution of high-quality meal service for demanding patrons. Success hinges on efficient preparation, presentation, and delivery of a diverse menu amidst operational intensity. Maximizing customer satisfaction directly correlates with increased revenue and facilitates the expansion and enhancement of the enterprise, positioning the player as the premier figure in the restaurant sector. Featuring compelling visual design, escalating difficulty, and highly engaging mechanics, this application serves as a rigorous assessment of strategic agility and time management. The product supports deployment in both English and Spanish markets, inviting users to demonstrate their expertise as a top-tier culinary executive.&lt;br&gt;&lt;h3&gt;Instructions&lt;/h3&gt;&lt;p&gt;Serve food ASAP?Serve food ASAP&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

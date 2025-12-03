@@ -1,5 +1,4 @@
-# SỬA DÒNG NÀY: Dùng tên miền mới của bạn, phải có https:// và dấu / ở cuối
-baseURL = 'https://minigamefun.online/' 
+baseURL = 'https://minigamefun.online/'
 languageCode = 'en-US'
 title = 'MiniGameFun'
 
@@ -8,7 +7,7 @@ title = 'MiniGameFun'
   tag = "tags"
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "SITEMAP"]
 
 [build]
   useResourceCacheWhen = 'fallback'

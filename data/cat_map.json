@@ -3,8 +3,6 @@
   "2": "Racing",
   "3": "Shooting",
   "4": "Arcade",
-  "5": "Puzzle",
-  "6": "Strategy",
   "7": "Multiplayer",
   "8": "Sports",
   "9": "Fighting",
@@ -12,11 +10,7 @@
   "11": "Hypercasual",
   "12": "Boys",
   "13": "Adventure",
-  "14": "Bejeweled",
   "15": "Clicker",
   "16": "Cooking",
-  "17": "Soccer",
-  "18": "Stickman",
-  "19": ".IO Games",
-  "20": "3D Games"
+  "19": ".IO Games"
 }

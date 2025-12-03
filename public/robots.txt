@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://minigamefun.online/sitemap.xml
+Host: minigamefun.online

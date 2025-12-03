@@ -2,7 +2,7 @@
 
 <h1>{{ .Title }}</h1>
 
-{{ $threshold := 1743047841 }}
+{{ $threshold := 1748447427 }}
 {{ $newGames := slice }}
 {{ range where .Site.RegularPages "Section" "games" }}
     {{ if ge (.Params.date_added | default 0 | int) $threshold }}
