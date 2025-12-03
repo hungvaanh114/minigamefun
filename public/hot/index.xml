@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hot Games on MiniGameFun</title>
-    <link>https://minigamefun.online/hot/</link>
+    <link>http://localhost:1313/hot/</link>
     <description>Recent content in Hot Games on MiniGameFun</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <atom:link href="https://minigamefun.online/hot/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/hot/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

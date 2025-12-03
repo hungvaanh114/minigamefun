@@ -32,19 +32,28 @@
                 <span class="logo">MINIGAME<span>FUN</span></span>
             </a>
             <nav class="header-nav">
-                <a href="{{ .Site.BaseURL }}" class="nav-link">Home</a>
-                <a href="{{ printf "%shot/" .Site.BaseURL }}" class="nav-link">Hot Games</a>
-                <a href="{{ printf "%snew/" .Site.BaseURL }}" class="nav-link">New Games</a>
-                <div class="nav-catalogs">
-                    <button class="nav-link catalogs-btn">Catalogs ▼</button>
-                    <div class="catalogs-dropdown">
-                        {{ $baseURL := .Site.BaseURL }}
-                        {{ range site.Data.cat_map }}
-                            <a href="{{ printf "%scategories/%s/" $baseURL (. | urlize) }}" class="catalog-link">{{ . }}</a>
-                        {{ end }}
-                    </div>
-                </div>
-            </nav>
+    <a href="{{ .Site.BaseURL }}" class="nav-link">Home</a>
+    <a href="{{ printf "%shot/" .Site.BaseURL }}" class="nav-link">Hot Games</a>
+    <a href="{{ printf "%snew/" .Site.BaseURL }}" class="nav-link">New Games</a>
+    
+    <!-- Catalog dropdown -->
+    <div class="nav-catalogs">
+        <button class="nav-link catalogs-btn">Catalogs ▼</button>
+        <div class="catalogs-dropdown">
+            {{ $baseURL := .Site.BaseURL }}
+            {{ range site.Data.cat_map }}
+                <a href="{{ printf "%scategories/%s/" $baseURL (. | urlize) }}" class="catalog-link">{{ . }}</a>
+            {{ end }}
+        </div>
+    </div>
+
+    <!-- Search form -->
+    <form class="nav-search" action="{{ .Site.BaseURL }}search/" method="get">
+        <input type="text" name="q" placeholder="Search games..." aria-label="Search games">
+        <button type="submit">🔍</button>
+    </form>
+</nav>
+
         </div>
     </header>
 

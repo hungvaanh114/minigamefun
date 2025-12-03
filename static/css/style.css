@@ -373,3 +373,31 @@ body {
     .thumbnail { aspect-ratio: 1 / 1; }
     .catalog-list .thumbnail { aspect-ratio: 1 / 1; }
 }
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-search {
+    margin-left: auto; /* đẩy search sang phải */
+    display: flex;
+    align-items: center;
+}
+
+.nav-search input {
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.nav-search button {
+    padding: 4px 8px;
+    margin-left: 4px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}

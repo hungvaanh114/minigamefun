@@ -1,8 +1,11 @@
 {{ define "main" }}
 <div class="game-play-wrapper">
-    <a href="{{ site.Home.Permalink }}" class="back-link">← Back to Games</a>
     
-    <!-- Title removed by request: game names are hidden -->
+    <div class="breadcrumb">
+        <a href="{{ site.Home.Permalink }}">← Back to Games</a>
+    </div>
+    
+    <h2 class="game-title">{{ .Title }}</h2>
 
     <div class="iframe-container">
         <iframe src="{{ .Params.embed_url | safeURL }}" 
@@ -12,10 +15,71 @@
     </div>
 
     <div class="game-desc">
-        <h3>Instructions:</h3>
+        <h3>Description:</h3>
         <div class="content-text">
             {{ .Content }}
         </div>
+        <div class="game-catalog" style="margin-top:20px;">
+        <strong>Category:</strong> 
+        {{ range .Params.categories }}
+        <a href="{{ site.BaseURL }}categories/{{ . | urlize }}" style="margin-right: 5px;">{{ . }}</a>
+        {{ end }}
     </div>
+    </div>
+
+
+
+    {{/* Logic tìm game cùng category bằng hàm intersect */}}
+    {{ $related := slice }}
+    {{ if .Params.categories }}
+        {{ $related = where site.RegularPages "Params.categories" "intersect" .Params.categories }}
+        {{ $related = where $related "Permalink" "ne" .Permalink }}
+    {{ end }}
+
+    {{ if gt (len $related) 0 }}
+    <section class="catalog-section related-games" style="margin-top:20px;">
+        <h2 class="section-title">Random games in the same category</h2>
+        
+        <div class="catalog-list">
+            {{ $randomCatGames := shuffle $related }}
+            {{ range first 5 $randomCatGames }} 
+            
+            <div class="game-card small">
+                <a href="{{ .Permalink }}">
+                    <div class="thumbnail">
+                        <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}" loading="lazy">
+                        <span class="play-btn">▶</span>
+                    </div>
+                    <div class="info"><h3>{{ .Title }}</h3></div>
+                </a>
+            </div>
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
+
+
+    {{ $gamesAll := where .Site.RegularPages "Section" "games" }}
+    {{ $randomGames := shuffle $gamesAll }}
+    
+    <section class="catalog-section random-games" style="margin-top:20px;">
+        <h2 class="section-title">Random Games</h2>
+        <div class="catalog-list">
+            {{ range first 10 $randomGames }}
+                {{ if ne .Permalink $.Permalink }}
+                <div class="game-card small">
+                    <a href="{{ .Permalink }}">
+                        <div class="thumbnail">
+                            <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}" loading="lazy">
+                            <span class="play-btn">▶</span>
+                        </div>
+                        <div class="info"><h3>{{ .Title }}</h3></div>
+                    </a>
+                </div>
+                {{ end }}
+            {{ end }}
+        </div>
+    </section>
+
 </div>
 {{ end }}

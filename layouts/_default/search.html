@@ -1,0 +1,101 @@
+{{ define "main" }}
+<div class="container" style="padding-top: 30px; min-height: 60vh;">
+    
+    <div class="section-header" style="border-bottom: 2px solid #333; margin-bottom: 20px; padding-bottom: 10px;">
+        <h1 style="font-size: 24px; margin: 0;">
+            <span id="search-title">Search Results:</span> 
+            <span id="search-query-display" style="color: var(--accent);">All Games</span>
+        </h1>
+        <p id="search-count" style="color: #666; margin-top: 5px; font-size: 14px;">Loading...</p>
+    </div>
+
+    <div id="loading-spinner" style="text-align: center; padding: 40px; font-size: 20px; color: #888;">
+        <i class="fa-solid fa-spinner fa-spin"></i> Loading library...
+    </div>
+
+    <div id="search-results-grid" class="game-grid">
+        </div>
+
+    <div id="no-results" style="display: none; text-align: center; padding: 50px;">
+        <h3>No games found.</h3>
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const params = new URLSearchParams(window.location.search);
+        const query = params.get('q'); // Lấy từ khóa
+        
+        const searchTitle = document.getElementById('search-title');
+        const displayQuery = document.getElementById('search-query-display');
+        const countDisplay = document.getElementById('search-count');
+        const grid = document.getElementById('search-results-grid');
+        const loading = document.getElementById('loading-spinner');
+        const noResults = document.getElementById('no-results');
+
+        // Tải dữ liệu
+        fetch('{{ "index.json" | relURL }}')
+            .then(res => res.json())
+            .then(data => {
+                let results = [];
+                let isSearch = false;
+
+                // LOGIC LỌC DỮ LIỆU
+                if (query && query.trim() !== "") {
+                    // TRƯỜNG HỢP 1: Có nhập từ khóa -> Lọc game
+                    isSearch = true;
+                    const searchTerm = query.toLowerCase().trim();
+                    results = data.filter(game => game.title.toLowerCase().includes(searchTerm));
+                    
+                    searchTitle.innerText = "Search Results:";
+                    displayQuery.innerText = `"${query}"`;
+                } else {
+                    // TRƯỜNG HỢP 2: Không nhập gì (Ấn Enter luôn) -> Lấy tất cả
+                    // Lấy 100 game đầu tiên để tránh treo trình duyệt
+                    // Bạn có thể sửa số 100 thành 500 nếu muốn hiện nhiều hơn
+                    results = data.slice(0, 100); 
+                    
+                    searchTitle.innerText = "Game Library:";
+                    displayQuery.innerText = "All Games";
+                }
+
+                loading.style.display = 'none';
+
+                // HIỂN THỊ KẾT QUẢ
+                if (results.length > 0) {
+                    if(isSearch){
+                        countDisplay.innerText = `Found ${results.length} games matching your search.`;
+                    } else {
+                        countDisplay.innerText = `Showing first ${results.length} games form library.`;
+                    }
+                    
+                    // Vẽ HTML (Giống hệt Hot Games)
+                    let htmlContent = "";
+                    results.forEach(game => {
+                        htmlContent += `
+                            <div class="game-card">
+                                <a href="${game.permalink}">
+                                    <div class="thumbnail">
+                                        <img src="${game.image}" alt="${game.title}" loading="lazy">
+                                        <span class="play-btn">▶</span>
+                                    </div>
+                                    <div class="info"><h3>${game.title}</h3></div>
+                                </a>
+                            </div>
+                        `;
+                    });
+                    grid.innerHTML = htmlContent;
+                    
+                } else {
+                    countDisplay.innerText = "0 results found";
+                    noResults.style.display = 'block';
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                loading.innerText = "Error loading data.";
+            });
+    });
+</script>
+{{ end }}

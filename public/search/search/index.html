@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results | MiniGameFun</title>
+    <link rel="stylesheet" href="/css/style.css">
+    
+    
+        <link rel="icon" href="/Image/logo.png">
+    
+
+        
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RWJFEHFVXK"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RWJFEHFVXK');
+    </script>
+
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="http://localhost:1313/" class="logo-link">
+                <span class="logo">MINIGAME<span>FUN</span></span>
+            </a>
+            <nav class="header-nav">
+    <a href="http://localhost:1313/" class="nav-link">Home</a>
+    <a href="http://localhost:1313/hot/" class="nav-link">Hot Games</a>
+    <a href="http://localhost:1313/new/" class="nav-link">New Games</a>
+    
+    
+    <div class="nav-catalogs">
+        <button class="nav-link catalogs-btn">Catalogs ▼</button>
+        <div class="catalogs-dropdown">
+            
+            
+                <a href="http://localhost:1313/categories/action/" class="catalog-link">Action</a>
+            
+                <a href="http://localhost:1313/categories/girls/" class="catalog-link">Girls</a>
+            
+                <a href="http://localhost:1313/categories/hypercasual/" class="catalog-link">Hypercasual</a>
+            
+                <a href="http://localhost:1313/categories/boys/" class="catalog-link">Boys</a>
+            
+                <a href="http://localhost:1313/categories/adventure/" class="catalog-link">Adventure</a>
+            
+                <a href="http://localhost:1313/categories/clicker/" class="catalog-link">Clicker</a>
+            
+                <a href="http://localhost:1313/categories/cooking/" class="catalog-link">Cooking</a>
+            
+                <a href="http://localhost:1313/categories/.io-games/" class="catalog-link">.IO Games</a>
+            
+                <a href="http://localhost:1313/categories/racing/" class="catalog-link">Racing</a>
+            
+                <a href="http://localhost:1313/categories/shooting/" class="catalog-link">Shooting</a>
+            
+                <a href="http://localhost:1313/categories/arcade/" class="catalog-link">Arcade</a>
+            
+                <a href="http://localhost:1313/categories/multiplayer/" class="catalog-link">Multiplayer</a>
+            
+                <a href="http://localhost:1313/categories/sports/" class="catalog-link">Sports</a>
+            
+                <a href="http://localhost:1313/categories/fighting/" class="catalog-link">Fighting</a>
+            
+        </div>
+    </div>
+
+    
+    <form class="nav-search" action="http://localhost:1313/search/" method="get">
+        <input type="text" name="q" placeholder="Search games..." aria-label="Search games">
+        <button type="submit">🔍</button>
+    </form>
+</nav>
+
+        </div>
+    </header>
+
+    <main class="container">
+        
+<div class="container" style="padding-top: 30px; min-height: 60vh;">
+    
+    <div class="section-header" style="border-bottom: 2px solid #333; margin-bottom: 20px; padding-bottom: 10px;">
+        <h1 style="font-size: 24px; margin: 0;">
+            <span id="search-title">Search Results:</span> 
+            <span id="search-query-display" style="color: var(--accent);">All Games</span>
+        </h1>
+        <p id="search-count" style="color: #666; margin-top: 5px; font-size: 14px;">Loading...</p>
+    </div>
+
+    <div id="loading-spinner" style="text-align: center; padding: 40px; font-size: 20px; color: #888;">
+        <i class="fa-solid fa-spinner fa-spin"></i> Loading library...
+    </div>
+
+    <div id="search-results-grid" class="game-grid">
+        </div>
+
+    <div id="no-results" style="display: none; text-align: center; padding: 50px;">
+        <h3>No games found.</h3>
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const params = new URLSearchParams(window.location.search);
+        const query = params.get('q'); 
+        
+        const searchTitle = document.getElementById('search-title');
+        const displayQuery = document.getElementById('search-query-display');
+        const countDisplay = document.getElementById('search-count');
+        const grid = document.getElementById('search-results-grid');
+        const loading = document.getElementById('loading-spinner');
+        const noResults = document.getElementById('no-results');
+
+        
+        fetch('\/index.json')
+            .then(res => res.json())
+            .then(data => {
+                let results = [];
+                let isSearch = false;
+
+                
+                if (query && query.trim() !== "") {
+                    
+                    isSearch = true;
+                    const searchTerm = query.toLowerCase().trim();
+                    results = data.filter(game => game.title.toLowerCase().includes(searchTerm));
+                    
+                    searchTitle.innerText = "Search Results:";
+                    displayQuery.innerText = `"${query}"`;
+                } else {
+                    
+                    
+                    
+                    results = data.slice(0, 100); 
+                    
+                    searchTitle.innerText = "Game Library:";
+                    displayQuery.innerText = "All Games";
+                }
+
+                loading.style.display = 'none';
+
+                
+                if (results.length > 0) {
+                    if(isSearch){
+                        countDisplay.innerText = `Found ${results.length} games matching your search.`;
+                    } else {
+                        countDisplay.innerText = `Showing first ${results.length} games form library.`;
+                    }
+                    
+                    
+                    let htmlContent = "";
+                    results.forEach(game => {
+                        htmlContent += `
+                            <div class="game-card">
+                                <a href="${game.permalink}">
+                                    <div class="thumbnail">
+                                        <img src="${game.image}" alt="${game.title}" loading="lazy">
+                                        <span class="play-btn">▶</span>
+                                    </div>
+                                    <div class="info"><h3>${game.title}</h3></div>
+                                </a>
+                            </div>
+                        `;
+                    });
+                    grid.innerHTML = htmlContent;
+                    
+                } else {
+                    countDisplay.innerText = "0 results found";
+                    noResults.style.display = 'block';
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                loading.innerText = "Error loading data.";
+            });
+    });
+</script>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col about-col">
+                    
+                    
+                        <img src="/Image/logo.png" alt="MiniGameFun" class="footer-logo-img">
+                    
+                    <p class="footer-desc">
+                        Play thousands of <strong>free online games</strong> at MiniGameFun. 
+                        No downloads, no login required. Enjoy the best <strong>HTML5 games</strong>, 
+                        puzzle games, racing games, and action games on any device.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Top Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="http://localhost:1313/categories/action">Action Games</a></li>
+                        <li><a href="http://localhost:1313/categories/racing">Racing Games</a></li>
+                        <li><a href="http://localhost:1313/categories/girls">Girls Games</a></li>
+                        <li><a href="http://localhost:1313/categories/puzzle">Puzzle Games</a></li>
+                        <li><a href="http://localhost:1313/categories/io-games">.IO Games</a></li>
+                        <li><a href="http://localhost:1313/categories/multiplayer">2 Player Games</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Information</h3>
+                    <ul class="footer-links">
+                        <li><a href="http://localhost:1313/about/">About Us</a></li>
+                        <li><a href="http://localhost:1313/contact/">Contact Us</a></li>
+                        <li><a href="http://localhost:1313/privacy/">Privacy Policy</a></li>
+                        <li><a href="http://localhost:1313/terms/">Terms of Use</a></li>
+                        <li><a href="http://localhost:1313/cookies/">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>New Additions</h3>
+                    <ul class="footer-links">
+                        
+                        <li>
+                            <a href="http://localhost:1313/games/007-cameraman-enemy-skibidi-410/" aria-label="007 Cameraman Enemy Skibidi">
+                                007 Cameraman Enemy Skibidi
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="http://localhost:1313/games/13-225/" aria-label="13">
+                                13
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="http://localhost:1313/games/2-player-blockminer-escape-54/" aria-label="2 Player BlockMiner Escape">
+                                2 Player BlockMiner Escape
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="http://localhost:1313/games/2d-nitro-race-230/" aria-label="2D Nitro Race">
+                                2D Nitro Race
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="http://localhost:1313/games/2d-obby-rainbow-parkour-333/" aria-label="2D Obby Rainbow Parkour">
+                                2D Obby Rainbow Parkour
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 <strong>MiniGameFun</strong>. All Rights Reserved. Designed by You.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
