@@ -374,30 +374,63 @@ body {
     .catalog-list .thumbnail { aspect-ratio: 1 / 1; }
 }
 
-.header-nav {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
+/* --- KHUNG BAO NGOÀI (.nav-search) --- */
 .nav-search {
-    margin-left: auto; /* đẩy search sang phải */
     display: flex;
     align-items: center;
+    background-color: #f0f2f5;  /* Nền xám nhạt */
+    border: 2px solid transparent; 
+    border-radius: 50px;        /* Bo tròn viên thuốc */
+    padding: 0 5px 0 12px;      /* Căn lề trong */
+    
+    width: 100%;
+    max-width: 150px;           /* ĐÃ GIẢM: Ngắn lại chỉ còn 200px */
+    height: 32px;               /* ĐÃ GIẢM: Chiều cao nhỏ gọn */
+    
+    transition: background-color 0.2s, border-color 0.2s; /* Chỉ đổi màu, không đổi kích thước */
 }
 
+/* Hiệu ứng khi bấm vào: Chỉ sáng lên và hiện viền đỏ, KHÔNG phóng to */
+.nav-search:focus-within {
+    background-color: #fff;
+    border-color: #ff0042;      /* Viền đỏ nhẹ */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* --- Ô NHẬP LIỆU --- */
 .nav-search input {
-    padding: 4px 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;            /* Chữ nhỏ */
+    color: #333;
+    padding: 0;
+    width: 100%;                /* Đảm bảo chiếm hết chỗ trống */
 }
 
+.nav-search input::placeholder {
+    color: #999;
+    font-size: 14px;
+}
+
+/* --- NÚT TÌM KIẾM --- */
 .nav-search button {
-    padding: 4px 8px;
-    margin-left: 4px;
+    background: transparent;
     border: none;
-    background-color: #333;
-    color: #fff;
-    border-radius: 4px;
+    color: #777;
+    width: 28px;                /* Nút nhỏ lại theo form */
+    height: 28px;
+    border-radius: 50%;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;            /* Icon nhỏ hơn xíu */
+    flex-shrink: 0;             /* Không bị bóp méo */
+}
+
+.nav-search button:hover {
+    color: #ff0042;             /* Hover hiện màu đỏ */
+    background-color: #e4e6eb;
 }
