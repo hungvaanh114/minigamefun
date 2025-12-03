@@ -2,107 +2,107 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on MiniGameFun</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://minigamefun.online/categories/</link>
     <description>Recent content in Categories on MiniGameFun</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://minigamefun.online/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>.IO Games</title>
-      <link>http://localhost:1313/categories/.io-games/</link>
+      <link>https://minigamefun.online/categories/.io-games/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/.io-games/</guid>
+      <guid>https://minigamefun.online/categories/.io-games/</guid>
       <description></description>
     </item>
     <item>
       <title>Adventure</title>
-      <link>http://localhost:1313/categories/adventure/</link>
+      <link>https://minigamefun.online/categories/adventure/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/adventure/</guid>
+      <guid>https://minigamefun.online/categories/adventure/</guid>
       <description></description>
     </item>
     <item>
       <title>Arcade</title>
-      <link>http://localhost:1313/categories/arcade/</link>
+      <link>https://minigamefun.online/categories/arcade/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/arcade/</guid>
+      <guid>https://minigamefun.online/categories/arcade/</guid>
       <description></description>
     </item>
     <item>
       <title>Boys</title>
-      <link>http://localhost:1313/categories/boys/</link>
+      <link>https://minigamefun.online/categories/boys/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/boys/</guid>
+      <guid>https://minigamefun.online/categories/boys/</guid>
       <description></description>
     </item>
     <item>
       <title>Clicker</title>
-      <link>http://localhost:1313/categories/clicker/</link>
+      <link>https://minigamefun.online/categories/clicker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/clicker/</guid>
+      <guid>https://minigamefun.online/categories/clicker/</guid>
       <description></description>
     </item>
     <item>
       <title>Cooking</title>
-      <link>http://localhost:1313/categories/cooking/</link>
+      <link>https://minigamefun.online/categories/cooking/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/cooking/</guid>
+      <guid>https://minigamefun.online/categories/cooking/</guid>
       <description></description>
     </item>
     <item>
       <title>Fighting</title>
-      <link>http://localhost:1313/categories/fighting/</link>
+      <link>https://minigamefun.online/categories/fighting/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/fighting/</guid>
+      <guid>https://minigamefun.online/categories/fighting/</guid>
       <description></description>
     </item>
     <item>
       <title>Girls</title>
-      <link>http://localhost:1313/categories/girls/</link>
+      <link>https://minigamefun.online/categories/girls/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/girls/</guid>
+      <guid>https://minigamefun.online/categories/girls/</guid>
       <description></description>
     </item>
     <item>
       <title>Hypercasual</title>
-      <link>http://localhost:1313/categories/hypercasual/</link>
+      <link>https://minigamefun.online/categories/hypercasual/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/hypercasual/</guid>
+      <guid>https://minigamefun.online/categories/hypercasual/</guid>
       <description></description>
     </item>
     <item>
       <title>Multiplayer</title>
-      <link>http://localhost:1313/categories/multiplayer/</link>
+      <link>https://minigamefun.online/categories/multiplayer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/multiplayer/</guid>
+      <guid>https://minigamefun.online/categories/multiplayer/</guid>
       <description></description>
     </item>
     <item>
       <title>Other</title>
-      <link>http://localhost:1313/categories/other/</link>
+      <link>https://minigamefun.online/categories/other/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/other/</guid>
+      <guid>https://minigamefun.online/categories/other/</guid>
       <description></description>
     </item>
     <item>
       <title>Racing</title>
-      <link>http://localhost:1313/categories/racing/</link>
+      <link>https://minigamefun.online/categories/racing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/racing/</guid>
+      <guid>https://minigamefun.online/categories/racing/</guid>
       <description></description>
     </item>
     <item>
       <title>Shooting</title>
-      <link>http://localhost:1313/categories/shooting/</link>
+      <link>https://minigamefun.online/categories/shooting/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/shooting/</guid>
+      <guid>https://minigamefun.online/categories/shooting/</guid>
       <description></description>
     </item>
     <item>
       <title>Sports</title>
-      <link>http://localhost:1313/categories/sports/</link>
+      <link>https://minigamefun.online/categories/sports/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/sports/</guid>
+      <guid>https://minigamefun.online/categories/sports/</guid>
       <description></description>
     </item>
   </channel>

@@ -7,7 +7,7 @@ title = 'MiniGameFun'
   tag = "tags"
 
 [outputs]
-  home = ["HTML", "RSS", "SITEMAP"]
+  home = ["HTML", "RSS", "JSON", "SITEMAP"]
 
 [build]
   useResourceCacheWhen = 'fallback'
