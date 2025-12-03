@@ -1,0 +1,27 @@
+{{- /* 1. KHAI BÁO XML HEADER (SỬA LỖI ESCAPE) */ -}}
+{{- /* Fix: Use printf and safeHTML to prevent changing <? to &lt;? */ -}}
+{{ printf "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Trang chủ -->
+  <url>
+    <loc>{{ .Site.BaseURL | absURL | safeURL }}</loc>
+    <lastmod>{{ now.Format "2006-01-02T15:04:05+07:00" | safeHTML }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Các page theo section -->
+  {{ range .Site.RegularPages }}
+    {{ if or (eq .Section "games") (eq .Section "categories") }}
+      {{ $lastmod := cond .Date (.Date.Format "2006-01-02T15:04:05+07:00") (now.Format "2006-01-02T15:04:05+07:00") }}
+      <url>
+        <loc>{{ .Permalink | absURL | safeURL }}</loc>
+        <lastmod>{{ $lastmod | safeHTML }}</lastmod>
+        <changefreq>{{ if eq .Section "games" }}weekly{{ else }}weekly{{ end }}</changefreq>
+        <priority>{{ if eq .Section "games" }}0.8{{ else }}0.7{{ end }}</priority>
+      </url>
+    {{ end }}
+  {{ end }}
+
+</urlset>
